@@ -19,6 +19,11 @@ const routes: RouteConfig[] = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   }
 ]
+// 使用 require.context 动态加载modules文件的 router 模块
+const requiredModules = require.context('./modules', false, /\.ts$/)
+requiredModules.keys().forEach(fileName => {
+  routes.push(...(requiredModules(fileName).default || requiredModules(fileName)))
+})
 
 const router = new VueRouter({
   mode: 'history',
