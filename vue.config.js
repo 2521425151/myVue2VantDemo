@@ -25,19 +25,21 @@ module.exports = {
         // 分割代码块
         splitChunks: {
           cacheGroups: {
-            //公用模块抽离
+            // 公用模块抽离
             common: {
-              chunks: 'initial',
-              minSize: 0, //大于0个字节
-              minChunks: 2 //抽离公共代码时，这个代码块最小被引用的次数
+              chunks: 'initial', // 同步代码  async => 异步，initial => 同步，all => 所有类型
+              priority: -20, // 权重
+              minSize: 0, // 大于0个字节
+              minChunks: 2, // 抽离公共代码时，这个代码块最小被引用的次数
+              reuseExistingChunk: true // 为true时，如果当前要提取的模块，在已经在打包生成的js文件中存在，则将重用该模块，而不是把当前要提取的模块打包生成新的js文件。
             },
-            //第三方库抽离
+            // 第三方库抽离
             vendor: {
-              priority: 1, //权重
-              test: /node_modules/,
+              priority: -10, // 权重
+              test: /[\\/]node_modules[\\/]/,
               chunks: 'initial',
-              minSize: 0, //大于0个字节
-              minChunks: 2 //在分割之前，这个代码块最小应该被引用的次数
+              minSize: 0, // 大于0个字节
+              minChunks: 2 // 在分割之前，这个代码块最小应该被引用的次数
             }
           }
         }
