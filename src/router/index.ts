@@ -28,6 +28,11 @@ requiredModules.keys().forEach(fileName => {
   routes.push(...(requiredModules(fileName).default || requiredModules(fileName)))
 })
 
+routes.push({
+  path: '*',
+  component: () => import(/* webpackChunkName: "404" */ '@/components/common/404.vue')
+})
+
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
