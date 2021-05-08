@@ -7,19 +7,19 @@ Vue.use(VueRouter)
 const routes: RouteConfig[] = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
     path: '/about',
-    name: 'About',
+    name: 'about',
     // 这将为该路由生成一个单独的块 about[hash].js
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/login.vue')
   }
 ]
 // 使用 require.context 动态加载modules文件的 router 模块
