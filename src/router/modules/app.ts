@@ -1,10 +1,10 @@
 const OrderRouter = [
   {
-    path: 'orderList',
-    component: () => import(/* webpackChunkName: "about" */ '@/views/about.vue')
+    path: '/dynamicCollapseForm',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/dynamicCollapseForm.vue')
   },
   {
-    path: 'orderDetail',
+    path: '/orderDetail',
     component: () => import(/* webpackChunkName: "about" */ '@/views/about.vue')
   }
 ]

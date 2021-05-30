@@ -13,6 +13,9 @@ import 'vant/lib/popup/style'
 import 'vant/lib/picker/style'
 import 'vant/lib/area/style'
 import 'vant/lib/calendar/style'
+import 'vant/lib/collapse/style'
+import 'vant/lib/collapse-item/style'
+import 'vant/lib/notice-bar/style'
 
 import {
   Toast,
@@ -29,7 +32,10 @@ import {
   Popup,
   Picker,
   Area,
-  Calendar
+  Calendar,
+  Collapse,
+  CollapseItem,
+  NoticeBar
 } from 'vant'
 // vant 组件数组
 const components = [
@@ -47,7 +53,10 @@ const components = [
   Popup,
   Picker,
   Area,
-  Calendar
+  Calendar,
+  Collapse,
+  CollapseItem,
+  NoticeBar
 ]
 // 自定vue义注册方法 vm 默认指向调用它的对象， main.js中 vue.use(needToVant); 所以vm指向Vue
 export default {

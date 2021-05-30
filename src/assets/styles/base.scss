@@ -1,60 +1,72 @@
 /* vant button */
 .van-button--info {
-	background-color: #387bff;
-	border: 1px solid #387bff;
+  background-color: #387bff;
+  border: 1px solid #387bff;
 }
 /* page level bottom button */
 .bottomButton {
-	display: inline-flex;
-	margin: 4.267vw;
-	width: 87.467vw;
-	.van-button--disabled {
-		color: #C4C9CC;
-		background-color: #EFF0F3;
-		border: 1px solid #EFF0F3;
-	}
+  display: inline-flex;
+  margin: 4.267vw;
+  width: 87.467vw;
+  .van-button--disabled {
+    color: #c4c9cc;
+    background-color: #eff0f3;
+    border: 1px solid #eff0f3;
+  }
 }
 /* 首页 数据状态样式 */
 .unfinish {
-	color: #fa9c00;
-	border-color: #ffc77d !important;
+  color: #fa9c00;
+  border-color: #ffc77d !important;
 }
 
 .await {
-	color: #3669fe;
-	border-color: #97b1ff !important;
+  color: #3669fe;
+  border-color: #97b1ff !important;
 }
 
 .success {
-	color: #83d89d;
-	border-color: #12b645 !important;
+  color: #83d89d;
+  border-color: #12b645 !important;
 }
 
 .reject {
-	color: #f9947e;
-	border-color: #f54c28 !important;
+  color: #f9947e;
+  border-color: #f54c28 !important;
 }
 // 底部布局
 .bottomRegion {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	z-index: 999;
-	box-sizing: border-box;
-	width: 100%;
-	padding: 0 16px;
-	padding-bottom: constant(safe-area-inset-bottom);
-	padding-bottom: env(safe-area-inset-bottom);
-	background-color: #fff;
-	padding: 10px;
-	border-top: 1px solid #eee;
-	.van-button--info {
-		background-color: #387bff;
-		border: 1px solid #387bff;
-		color: #fff;
-		border-radius: 20px;
-		width: 100%;
-		font-size: 16px;
-		height: 40px;
-	}
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 16px;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+  background-color: #fff;
+  padding: 10px;
+  border-top: 1px solid #eee;
+  .van-button--info {
+    background-color: #387bff;
+    border: 1px solid #387bff;
+    color: #fff;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 16px;
+    height: 40px;
+  }
+}
+// 天加一条信息的按钮
+.addButton {
+  background-color: #fff;
+  .van-button {
+    height: 32px;
+    width: 343px;
+    background-color: #ebf2ff;
+    color: #387bff;
+    border-color: transparent;
+    margin: 15px 0;
+  }
 }
