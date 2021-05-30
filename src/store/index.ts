@@ -4,8 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 // 使用 require.context 动态引入 vuex modules
-const modulesFiles = require.context('./modules', true, /\.ts$/)
-const modules = modulesFiles.keys().reduce((module: any, modulePath) => {
+const modulesFiles = require.context('./common', true, /\.ts$/)
+const modules = modulesFiles.keys().reduce((module: any, modulePath:any) => {
   const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
   const value = modulesFiles(modulePath)
   module[moduleName] = value.default

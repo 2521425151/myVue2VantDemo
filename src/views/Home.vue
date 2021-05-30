@@ -8,8 +8,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'Home'
+  name: 'home',
+  computed: {
+    ...mapState({
+      useName: state => (state['home'] ? state['home']['useName'] : '') // 使用按需引入的vuex模块的引入方式
+    })
+  },
+  created() {
+    console.log(this.useName, 'useName')
+    console.log(this.$store.state, 'store.state')
+  }
 }
 </script>
 <style lang="scss" scoped>

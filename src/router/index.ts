@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import home from '../views/home.vue'
 
 Vue.use(VueRouter)
 
@@ -8,13 +8,13 @@ const routes: RouteConfig[] = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: home
   },
   {
     path: '/about',
     name: 'about',
     // 这将为该路由生成一个单独的块 about[hash].js
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/about.vue')
   },
   {
     path: '/login',
