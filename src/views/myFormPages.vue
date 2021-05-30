@@ -1,23 +1,16 @@
 <template>
   <div class="myFormPages">
-    <my-form :fieldArr="fieldArr" :formData="formData" ref="myform">
-      <van-popup v-model="showSelect" position="bottom">
-        <!-- 普通选择器 -->
-        <van-picker
-          show-toolbar
-          :value-key="pickerValueKey"
-          :columns="pickerColumns"
-          @confirm="confirmSelect"
-          @cancel="cancelSelect"
-        />
-      </van-popup>
-      <van-popup v-model="showArea" position="bottom">
-        <!-- 地区选择器 -->
-        <van-area :area-list="areaList" @confirm="confirmSelect" @cancel="cancelSelect" />
-      </van-popup>
-      <!-- 日期选择器 -->
-      <van-calendar v-model="showCalendar" @confirm="confirmSelect" />
-    </my-form>
+    <my-form
+      ref="myform"
+      :fieldArr="fieldArr"
+      :formData="formData"
+      :pickerColumns="pickerColumns"
+      :areaList="areaList"
+      :currentFieldType="currentFieldType"
+      :pickerValueKey="pickerValueKey"
+      @confirmSelect="confirmSelect"
+      @cancelSelect="cancelSelect"
+    />
     <div class="bottomRegion">
       <van-button size="small" plain type="info" @click="myFormPagesSubmit">提交</van-button>
     </div>
