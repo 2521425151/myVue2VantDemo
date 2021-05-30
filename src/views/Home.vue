@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div id="nav">
-      <router-link to="/about">About</router-link>
+      <router-link to="/dragIocnPages">dragIocnPages</router-link>
       <router-link to="/myFormPages">myFormPages</router-link>
       <router-link to="/dynamicCollapseForm">dynamicCollapseForm</router-link>
     </div>

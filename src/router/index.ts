@@ -11,10 +11,10 @@ const routes: RouteConfig[] = [
     component: home
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/dragIocnPages',
+    name: 'dragIocnPages',
     // 这将为该路由生成一个单独的块 about[hash].js
-    component: () => import(/* webpackChunkName: "about" */ '../views/about.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/dragIocnPages.vue')
   },
   {
     path: '/login',
