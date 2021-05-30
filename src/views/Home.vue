@@ -3,6 +3,7 @@
     <div id="nav">
       <router-link to="/about">About</router-link>
       <router-link to="/myFormPages">myFormPages</router-link>
+      <router-link to="/dynamicCollapseForm">dynamicCollapseForm</router-link>
     </div>
   </div>
 </template>
@@ -31,6 +32,7 @@ export default {
     color: #2c3e50;
     margin: 10px;
     background-color: #eee;
+    display: inline-block;
     &.router-link-exact-active {
       color: #42b983;
     }
