@@ -19,7 +19,7 @@
 
 <script>
 import myForm from '@/components/myForm'
-import { firstUpperCase, dateFormat } from '@/utils/dynamic/getString'
+import { dateFormat } from '@/utils/dynamic/getString'
 export default {
   name: 'myFormPages',
   components: {
@@ -79,10 +79,8 @@ export default {
           readonly: true,
           clickable: true,
           click: val => {
-            console.log(val, '下拉选择')
             this.currentName = val.name
             this.currentFieldType = 'select'
-            this.showSelect = true
             this.pickerColumns = [
               {
                 [this.pickerValueKey]: '无',
@@ -128,7 +126,6 @@ export default {
             console.log(val, '地区选择')
             this.currentName = val.name
             this.currentFieldType = 'area'
-            this.showArea = true
             this.areaList = {
               province_list: {
                 110000: '北京市',
@@ -160,7 +157,6 @@ export default {
             console.log(val, '日期选择')
             this.currentName = val.name
             this.currentFieldType = 'calendar'
-            this.showCalendar = true
           }
         },
         {
@@ -180,13 +176,12 @@ export default {
         input: '',
         switch: true,
         radio: 1,
-        select: ''
+        select: '',
+        area: '',
+        calendar: ''
       },
-      showSelect: false,
       pickerColumns: [],
-      showArea: false,
       areaList: {},
-      showCalendar: false,
       currentFieldType: '',
       currentName: '',
       pickerValueKey: 'text'
@@ -196,7 +191,6 @@ export default {
   watch: {},
   methods: {
     confirmSelect(val) {
-      this[`show${firstUpperCase(this.currentFieldType)}`] = false
       if (this.currentFieldType === 'select') {
         this.formData[this.currentName] = val[this.pickerValueKey]
       }
@@ -206,9 +200,10 @@ export default {
       if (this.currentFieldType === 'calendar') {
         this.formData[this.currentName] = dateFormat(val, 'YYYY-MM-DD')
       }
+      this.cancelSelect()
     },
     cancelSelect() {
-      this[`show${firstUpperCase(this.currentFieldType)}`] = false
+      this.currentFieldType = ''
     },
     myFormPagesSubmit() {
       this.$refs['myform'].$refs.myform

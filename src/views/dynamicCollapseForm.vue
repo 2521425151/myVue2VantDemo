@@ -255,7 +255,7 @@ export default {
       if (this.currentFieldType === 'calendar') {
         this.collapseArr[this.collapseIndex][this.currentName] = dateFormat(val, 'YYYY-MM-DD')
       }
-      this.currentFieldType = ''
+      this.cancelSelect()
     },
     cancelSelect() {
       this.currentFieldType = ''

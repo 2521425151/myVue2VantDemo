@@ -72,7 +72,7 @@
       </van-field>
     </template>
     <slot>
-      <van-popup v-model="showSelect" position="bottom">
+      <van-popup v-model="showSelect" position="bottom" @click-overlay="$listeners.cancelSelect">
         <!-- 普通选择器 -->
         <van-picker
           show-toolbar
@@ -82,7 +82,7 @@
           @cancel="$listeners.cancelSelect"
         />
       </van-popup>
-      <van-popup v-model="showArea" position="bottom">
+      <van-popup v-model="showArea" position="bottom" @click-overlay="$listeners.cancelSelect">
         <!-- 地区选择器 -->
         <van-area
           :area-list="$attrs.areaList"
@@ -91,7 +91,11 @@
         />
       </van-popup>
       <!-- 日期选择器 -->
-      <van-calendar v-model="showCalendar" @confirm="$listeners.confirmSelect" />
+      <van-calendar
+        v-model="showCalendar"
+        @confirm="$listeners.confirmSelect"
+        @close="$listeners.cancelSelect"
+      />
     </slot>
   </div>
 </template>
@@ -119,39 +123,29 @@
   cancelSelect：Function 
 */
 export default {
+  data() {
+    return {
+      showSelect: false,
+      showArea: false,
+      showCalendar: false
+    }
+  },
   computed: {
-    showSelect: {
-      // 在祖籍给 this.$attrs.currentFieldType 赋值 普通computed会报错 没有 setter 所以使用 get set 方式
-      // set get 必须使用 普通函数 使用箭头函数会使 this 指向 undefined
-      set: function (v) {
-        this.$attrs.currentFieldType = v
-      },
-      get: function () {
-        return this.$attrs.currentFieldType === 'select'
-      }
-    },
-    showArea: {
-      set: function (v) {
-        this.$attrs.currentFieldType = v
-      },
-      get: function () {
-        return this.$attrs.currentFieldType === 'area'
-      }
-    },
-    showCalendar: {
-      set: function (v) {
-        this.$attrs.currentFieldType = v
-      },
-      get: function () {
-        return this.$attrs.currentFieldType === 'calendar'
-      }
-    },
     collapseIndex: {
       set: function (v) {
         this.$attrs['collapseIndex'] = v
       },
       get: function () {
         return this.$attrs['collapseIndex'] || 0
+      }
+    }
+  },
+  watch: {
+    '$attrs.currentFieldType': {
+      handler: function (n, o) {
+        this.showSelect = n === 'select'
+        this.showArea = n === 'area'
+        this.showCalendar = n === 'calendar'
       }
     }
   },
